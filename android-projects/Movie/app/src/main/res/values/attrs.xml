@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CartoonView">
+        <attr name="valueCircleColor" format="color|reference"/>
+        <attr name="valueDotColor" format="color|reference"/>
+        <attr name="valueRadius" format="dimension"/>
+        <attr name="valueDeltaPhi" format="float"/>
+    </declare-styleable>
+</resources>
