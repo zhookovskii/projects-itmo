@@ -1,0 +1,4 @@
+"D:\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release "-DCMAKE_MAKE_PROGRAM=D:/CLion 2021.3.4/bin/ninja/win/ninja.exe" Ninja -DCMAKE_RC_COMPILER=windres -DCMAKE_BUILD_TYPE=Release -G Ninja C:\Users\mi\CLionProjects\lab2
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/mi/CLionProjects/lab2/cmake-build-release

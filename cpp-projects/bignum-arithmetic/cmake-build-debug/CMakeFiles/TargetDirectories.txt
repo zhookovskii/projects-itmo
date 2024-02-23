@@ -1,0 +1,3 @@
+C:/Users/mi/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/LongArithmetics.dir
+C:/Users/mi/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/mi/CLionProjects/untitled2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
