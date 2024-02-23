@@ -1,0 +1,12 @@
+import java.io.InputStream
+import java.text.ParseException
+
+class Parser {
+
+    private lateinit var lex: LexicalAnalyzer
+
+    private fun mismatchedToken(expected: String): Nothing =
+        throw ParseException("expected $expected at ${lex.curPos}", lex.curPos)
+
+    private fun unexpectedToken(): Nothing =
+        throw ParseException("unexpected ${lex.curToken} at ${lex.curPos}", lex.curPos)

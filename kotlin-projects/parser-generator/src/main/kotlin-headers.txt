@@ -1,0 +1,35 @@
+GRAMMAR {
+    TOKEN {
+        funn = "fun";
+        name = r"[a-z][a-zA-Z0-9]*";
+        type = r"[A-Z][a-z]*";
+        value = r"-?([0-9.]+)?";
+        equals = "=";
+        lparen = "(";
+        rparen = ")";
+        comma = ",";
+        colon = ":";
+        langle = "<";
+        rangle = ">";
+    }
+
+    RULE {
+        S => funn, name, lparen, A, rparen, R;
+        A => name, colon, T, D, A';
+        D => equals, value;
+        D => #EMPTY;
+        A => #EMPTY;
+        A' => comma, A;
+        A' => #EMPTY;
+        R => colon, T;
+        R => #EMPTY;
+        T => type, T';
+        T' => langle, G, rangle;
+        T' => #EMPTY;
+        G => T, G';
+        G' => comma, G;
+        G' => #EMPTY;
+    }
+
+    INIT = S
+}

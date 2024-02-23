@@ -1,0 +1,30 @@
+GRAMMAR {
+    TOKEN {
+        number = r"[0-9]+";
+        plus = "+";
+        minus = "-";
+        mul = "*";
+        div = "/";
+        lparen = "(";
+        rparen = ")";
+    }
+
+    SYNTH {
+        result : Double<0.0>;
+    }
+
+    RULE {
+        E => T, E'(T.result) -> [ result = E'.result ];
+        E'(acc: Double) => plus, T [ val temp = acc + T.result ], E'(temp) -> [ result = E'.result ];
+        E'(acc: Double) => minus, T [ val temp = acc - T.result ], E'(temp) -> [ result = E'.result ];
+        E'(acc: Double) => #EMPTY -> [ result = acc ];
+        T => F, T'(F.result) -> [ result = T'.result ];
+        T'(acc: Double) => mul, F [ val temp = acc * F.result ], T'(temp) -> [ result = T'.result ];
+        T'(acc: Double) => div, F [ val temp = acc / F.result ], T'(temp) -> [ result = T'.result ];
+        T'(acc: Double) => #EMPTY -> [ result = acc ];
+        F => lparen, E, rparen -> [ result = E.result ];
+        F => number -> [ result = number.toDouble() ];
+    }
+
+    INIT = E
+}
